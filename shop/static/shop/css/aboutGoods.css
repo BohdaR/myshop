@@ -1,0 +1,141 @@
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.leftColumb {
+  width: 50%;
+}
+
+.productImage {
+  width: 100%;
+  padding: 5%;
+}
+
+.rightColumn {
+  width: 50%;
+}
+
+/* Product Description */
+.product-description {
+  border-bottom: 1px solid #e1e8ee;
+  margin-bottom: 20px;
+}
+
+.product-description h1 {
+  font-weight: 300;
+  font-size: 52px;
+  color: #43484d;
+  letter-spacing: -2px;
+}
+
+.catagoryLink{
+  margin-top: 10px;
+}
+
+.productDescription {
+  font-size: 16px;
+  font-weight: 300;
+  color: #86939e;
+  line-height: 24px;
+  margin: 20px 0px;
+}
+
+.catagoryLink{
+  margin: 20px 0px 0px 0px;
+}
+
+/* Config product */
+.config-choose {
+  margin: 20px 0px 10px 0px;
+}
+
+.config-choose button {
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+  padding: 13px 20px;
+  font-size: 14px;
+  color: #5e6977;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.config-choose button:hover,
+.config-choose button:active,
+.config-choose button:focus {
+  border: 2px solid #86939e;
+  outline: none;
+}
+
+.config {
+  border-bottom: 1px solid #e1e8ee;
+  margin: 20px 0px;
+}
+
+.config a {
+  color: #358ed7;
+  text-decoration: none;
+  font-size: 12px;
+  position: relative;
+  margin: 10px 0;
+  display: inline-block;
+}
+.config a:before {
+  content: "?";
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(53, 142, 215, 0.5);
+  display: inline-block;
+  text-align: center;
+  line-height: 16px;
+  opacity: 0.5;
+  margin-right: 5px;
+}
+
+/* Product Price */
+.product-price {
+  display: flex;
+  align-items: center;
+}
+
+.product-price p {
+  font-size: 26px;
+  font-weight: 300;
+  color: #43474d;
+  margin-right: 20px;
+}
+
+.cart-btn {
+  display: inline-block;
+  background-color: #7dc855;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 30px;
+  transition: all 0.5s;
+}
+.cart-btn:hover {
+  background-color: #64af3d;
+}
+
+/* Responsive */
+@media (max-width: 940px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .leftColumb,
+  .rightColumn {
+    width: 100%;
+  }
+
+}
+
+/* @media (max-width: 535px) {
+  .left-column img {
+    width: 220px;
+    top: -85px;
+  }
+} */

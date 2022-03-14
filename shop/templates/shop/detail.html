@@ -1,0 +1,64 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block css-files %} 
+    <link rel="stylesheet" href="{% static 'shop/css/aboutGoods.css' %}" />
+{% endblock %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+    
+
+<div class="container">
+    <div class="leftColumb">
+        {% if product %}
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="" class="productImage">
+        {% else %}
+            <p>404 product not found</p>
+        {% endif %}
+    </div>
+    <div class="rightColumn"><!-- Product Description -->
+        <div class="product-description">
+            <p class="catagoryLink"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></p>
+            <h1>{{ product.name }}</h1>
+            <p class="productDescription">{{ product.description}}</p>
+        </div>
+        <!-- Product Configuration -->
+        <div class="product-configuration"><!-- Product Color -->
+            <div class="config">
+                <p>Конфігурація товару</p>
+                <div class="config-choose">
+                    <button>
+                        Властивість 1
+                    </button> 
+                    <button>
+                        Властивість 2
+                    </button> 
+                    <button>
+                        Властивість 3
+                    </button>
+                </div>
+                <a href="#">Як налаштувати товар?</a></div>
+            </div>
+            <!-- Product Pricing -->
+            <div class="product-price">
+                <p>{{ product.price }} ₴</p>
+
+                <form action="{% url "cart:cart_add" product.pk %}" method="post">
+                    {{ cart_product_form.quantity }}
+                    {% csrf_token %}
+                    <button type="submit" class="cart-btn">Купити</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div
+
+
+
+{% endblock %}
+
