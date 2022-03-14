@@ -2,11 +2,11 @@
     display: flex;
 }
 
-.productsNav{
+.products-nav{
     width: 15%;
 }
 
-.productsTable{
+.products-table{
     width: 85%;
 }
 
@@ -35,7 +35,7 @@
 
 /* //////////////// */
 
-.productsTable{
+.products-table{
     display: flex;
     flex-wrap: wrap;
 }
@@ -207,10 +207,10 @@
     .card {
       width: 50%;
     }
-    .productsTable{
+    .products-table{
         width: 100%;
     }
-    .productsNav{
+    .products-nav{
         display: none;
     }
   }

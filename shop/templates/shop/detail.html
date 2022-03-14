@@ -14,18 +14,18 @@
     
 
 <div class="container">
-    <div class="leftColumb">
+    <div class="left-columb">
         {% if product %}
             <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="" class="productImage">
         {% else %}
             <p>404 product not found</p>
         {% endif %}
     </div>
-    <div class="rightColumn"><!-- Product Description -->
-        <div class="product-description">
-            <p class="catagoryLink"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></p>
+    <div class="right-columb"><!-- Product Description -->
+        <div class="description">
+            <p class="catagory-link"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></p>
             <h1>{{ product.name }}</h1>
-            <p class="productDescription">{{ product.description}}</p>
+            <p class="product-description">{{ product.description}}</p>
         </div>
         <!-- Product Configuration -->
         <div class="product-configuration"><!-- Product Color -->
