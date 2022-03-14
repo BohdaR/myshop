@@ -26,10 +26,9 @@
             <button class="search-buttton">Знайти</button>
           </form>
         </div>
-        <div class="navListWrapper">
+        <div class="nav-list-wrapper">
           <nav>
             <ul>
-
               {% if request.user.is_authenticated %}
               <li class="nav-list-item">
                 <a href="{% url 'cart:cart_detail' %}" class="nav-link">

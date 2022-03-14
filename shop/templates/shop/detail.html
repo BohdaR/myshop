@@ -16,43 +16,79 @@
 <div class="container">
     <div class="left-columb">
         {% if product %}
-            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="" class="productImage">
+            <img src="{% if product.image %}{{ product.image.url }}{% endif %}" alt="" class="product-image">
         {% else %}
             <p>404 product not found</p>
         {% endif %}
-    </div>
-    <div class="right-columb"><!-- Product Description -->
-        <div class="description">
-            <p class="catagory-link"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></p>
-            <h1>{{ product.name }}</h1>
-            <p class="product-description">{{ product.description}}</p>
+        <div class="similar-products">
+            <p>Схожі товари</p>
         </div>
-        <!-- Product Configuration -->
-        <div class="product-configuration"><!-- Product Color -->
-            <div class="config">
-                <p>Конфігурація товару</p>
-                <div class="config-choose">
-                    <button>
-                        Властивість 1
-                    </button> 
-                    <button>
-                        Властивість 2
-                    </button> 
-                    <button>
-                        Властивість 3
-                    </button>
-                </div>
-                <a href="#">Як налаштувати товар?</a></div>
+        <div class="box">
+            <div class="box1">
+                <a href="{{ product.category.get_absolute_url }}">
+                    <img src="{% static 'shop/img/logo.png' %}">
+                </a>
+                <p>INTEL CORE i5 10TH GEN</p>
             </div>
-            <!-- Product Pricing -->
+            <div class="box1">
+                <a href="{{ product.category.get_absolute_url }}">
+                    <img src="{% static 'shop/img/logo.png' %}">
+                </a>
+                <p>INTEL CORE i5 10TH GEN</p>
+            </div>
+            <div class="box1">
+                <a href="{{ product.category.get_absolute_url }}">
+                    <img src="{% static 'shop/img/logo.png' %}">
+                </a>
+                <p>INTEL CORE i5 10TH GEN</p>
+            </div>
+            <div class="box1">
+                <a href="{{ product.category.get_absolute_url }}">
+                    <img src="{% static 'shop/img/logo.png' %}">
+                </a>
+                <p>INTEL CORE i5 10TH GEN</p>
+            </div>
+        </div>
+    </div>
+    <div class="right-column"><!-- Product Description -->
+        <div class="description">
+            <h1>{{ product.name }}</h1>
             <div class="product-price">
                 <p>{{ product.price }} ₴</p>
-
                 <form action="{% url "cart:cart_add" product.pk %}" method="post">
                     {{ cart_product_form.quantity }}
                     {% csrf_token %}
                     <button type="submit" class="cart-btn">Купити</button>
                 </form>
+            </div>
+            <input type="checkbox" class="read-more-checker" id="read-more-checker" />
+            <div class="limited l-200">
+                <p class="product-description">{{ product.description}}</p>
+            <div class="bottom"></div>
+            </div>
+            <label for="read-more-checker" class="read-more-button"></label>
+        </div>
+        <p class="xarakteristick-label">Характеристики</p>
+        <div class="product-characteristics">
+            <div class="product-characteristics-row">
+                <div class="product-characteristics-item"><p>Частота</p></div>
+                <div class="product-characteristics-item"><p>3.4Ггц</p></div>
+            </div>
+            <div class="product-characteristics-row">
+                <div class="product-characteristics-item"><p>Частота</p></div>
+                <div class="product-characteristics-item"><p>3.4Ггц</p></div>
+            </div>
+            <div class="product-characteristics-row">
+                <div class="product-characteristics-item"><p>Частота</p></div>
+                <div class="product-characteristics-item"><p>3.4Ггц</p></div>
+            </div>
+            <div class="product-characteristics-row">
+                <div class="product-characteristics-item"><p>Частота</p></div>
+                <div class="product-characteristics-item"><p>3.4Ггц</p></div>
+            </div>
+            <div class="product-characteristics-row">
+                <div class="product-characteristics-item"><p>Частота</p></div>
+                <div class="product-characteristics-item"><p>3.4Ггц</p></div>
             </div>
         </div>
     </div>
