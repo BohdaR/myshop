@@ -8,6 +8,7 @@ html {
 
 .product-image {
   width: 100%;
+  max-width: 400px;
   padding: 5%;
 }
 
