@@ -1,0 +1,18 @@
+{% extends 'shop/base.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {% for f in form %}
+    <p class="reg-item"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+    <button class="form-button" type="submit">Реєстрація</button>
+</form>
+
+{% endblock  %}
