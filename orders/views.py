@@ -5,7 +5,7 @@ from django.views.generic import FormView
 from cart.cart import Cart
 
 
-class CreateOrder():
+class CreateOrder(FormView):
     pass
 
 
