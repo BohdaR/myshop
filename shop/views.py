@@ -52,7 +52,7 @@ class ProductDetail(DataMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        #
+        context['characteristics'] = Characteristic.objects.all().filter(product_id=context['product'].id)
         c_def = self.get_user_context(title = context['product'].name)
         return dict(list(context.items()) + list((c_def.items())))
 
