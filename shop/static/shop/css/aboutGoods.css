@@ -8,7 +8,7 @@ html {
 
 .product-image {
   width: 100%;
-  max-width: 400px;
+  padding: 20%;
 }
 
 .right-columb {
@@ -16,6 +16,7 @@ html {
 }
 
 /* Product Description */
+
 .similar-products {
   font-size: 50px;
   text-align: center;
