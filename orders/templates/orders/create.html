@@ -5,7 +5,7 @@
 {% block content %}
     <h1>Checkout</h1>
     <div class="order-info">
-        <h3>Your order</h3>
+        <h3>Ваше замовлення</h3>
         <ul>
             {% for item in cart %}
                 <li>
@@ -17,8 +17,11 @@
         <p>Total: ${{ cart.get_total_price }}</p>
     </div>
     <form action="." method="post" class="order-form">
-        {{ form.as_p }}
-        <p><input type="submit" value="Place order"></p>
+        {% for f in form %}
+        <p class="reg-item"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <button class="form-button" type="submit">Оформити замовлення</button>
         {% csrf_token %}
     </form>
 {% endblock %}

@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from .models import OrderItem
 from .forms import OrderCreateForm
+from django.views.generic import FormView
 from cart.cart import Cart
+
+
+class CreateOrder():
+    pass
 
 
 def order_create(request):

@@ -4,12 +4,12 @@ from shop.models import Product
 
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    address = models.CharField(max_length=250)
+    first_name = models.CharField(max_length=50, verbose_name='Ім\'я')
+    last_name = models.CharField(max_length=50, verbose_name='Прізвище')
+    email = models.EmailField(verbose_name='Електронна пошта')
+    address = models.CharField(max_length=250, verbose_name='Адреса')
     postal_code = models.CharField(max_length=20)
-    city = models.CharField(max_length=100)
+    city = models.CharField(max_length=100, verbose_name='Місто')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
@@ -31,6 +31,7 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, related_name='order_items', on_delete=models.PROTECT)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField(default=1)
+
 
     def __str__(self):
         return '{}'.format(self.id)
