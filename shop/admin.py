@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import *
+
+
+class CharacteristicInline(admin.TabularInline):
+    model = Characteristic
+    raw_id_fields = ['product']
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -7,7 +12,9 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
-admin.site.register(Category, CategoryAdmin)
+class BrendAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')
+    prepopulated_fields = {'slug': ('name',)}
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -16,6 +23,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ('price', 'stock', 'available')
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ('name', 'description')
+    inlines = [CharacteristicInline]
 
 
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Brend, BrendAdmin)
 admin.site.register(Product, ProductAdmin)
