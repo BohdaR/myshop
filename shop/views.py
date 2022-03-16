@@ -5,7 +5,7 @@ from .utils import *
 from .forms import *
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
-#
+from django.db.models import Q
 from cart.forms import CartAddProductForm
 
 
@@ -20,6 +20,10 @@ class Home(DataMixin, ListView):
         return dict(list(context.items()) + list((c_def.items())))
 
     def get_queryset(self):
+        # # products = Product.objects.filter(available=True)
+        # search = self.request.GET.get('q')
+
+        # for self.products
         return Product.objects.filter(available=True).select_related('category')
 
 

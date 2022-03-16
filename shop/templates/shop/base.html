@@ -21,8 +21,8 @@
           <a href="{% url 'product_list' %}" class="nav-link"><img class="logo-img" src="{% static 'shop/img/logo.png' %}" alt=""></a>
         </div>
         <div class="search-wrapper">
-          <form action="{% url 'product_list' %}">
-            <input class="search-input" type="input" placeholder="Пошук...">
+          <form action="{% url 'product_list' %}" method="get">
+            <input name="q" class="search-input" type="input" placeholder="Пошук...">
             <button class="search-buttton">Знайти</button>
           </form>
         </div>
