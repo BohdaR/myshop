@@ -20,13 +20,12 @@ class Home(DataMixin, ListView):
         return dict(list(context.items()) + list((c_def.items())))
 
     def get_queryset(self):
-        # # products = Product.objects.filter(available=True)
-        # search = self.request.GET.get('q')
+        query = self.request.GET.get('q')
+        if query:
+            return Product.objects.filter(Q(name__iregex=query), available=True).select_related('category')
+        else:
+            return Product.objects.filter(available=True).select_related('category')
 
-        # for i in context['products']:
-        #     if (search.lower() in i['name'].lower()):
-        #         context[]
-        return Product.objects.filter(available=True).select_related('category')
 
 
 class ProductList(DataMixin, ListView):
