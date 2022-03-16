@@ -23,7 +23,9 @@ class Home(DataMixin, ListView):
         # # products = Product.objects.filter(available=True)
         # search = self.request.GET.get('q')
 
-        # for self.products
+        # for i in context['products']:
+        #     if (search.lower() in i['name'].lower()):
+        #         context[]
         return Product.objects.filter(available=True).select_related('category')
 
 
