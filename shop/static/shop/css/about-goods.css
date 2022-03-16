@@ -7,6 +7,10 @@ html {
 }
 
 .product-image {
+  display: none;
+}
+
+.active-img{
   width: 100%;
   padding: 20%;
 }

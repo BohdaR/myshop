@@ -15,11 +15,10 @@
 
 <div class="container">
     <div class="left-columb">
-        {% if product %}
-            <img src="{% if product.image %}{{ product.image.url }}{% endif %}" alt="" class="product-image">
-        {% else %}
-            <p>404 product not found</p>
-        {% endif %}
+            <img src="{% if product.main_image %}{{ product.main_image.url }}{% endif %}" alt="" class="active-img">
+            {% for el in product_image %}
+            <img src="{% if el.image %}{{ el.image.url }}{% endif %}" alt="" class="product-image">
+        {% endfor %}
         <div class="similar-products">
             <p>Схожі товари</p>
         </div>
