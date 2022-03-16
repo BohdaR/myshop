@@ -12,9 +12,9 @@
 
 {% block content %}
   <h1 class="h1">Корзина покупок</h1>
-  <table  class="alingcenter" width="1900" height="400">
+  <table  class="alingcenter" width="99%" height="50%">
     <thead>
-      <tr bgcolor="grey">
+      <tr class="colortable1">
         <th>Фото</th>
         <th>Товар</th>
         <th>Обновити кількість</th>
@@ -24,7 +24,7 @@
         <th>Загальна сумма</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="colortable2">
       {% for item in cart %}
         {% with product=item.product %}
           <tr>
@@ -51,7 +51,7 @@
           </tr>
         {% endwith %}
       {% endfor %}
-      <tr class="total">
+      <tr class="colortable1">
         <td >Всього</td>
         <td colspan="5"></td>
         <td >${{ cart.get_total_price }}</td>
@@ -59,7 +59,7 @@
     </tbody>
   </table>
   <p class="text-right">
-    <a class="colora" href="{% url 'product_list' %}" class="button light">В магазин</a>
-    <a class="colora" href="{% url 'order_create' %}" class="button">Оформити заказ</a>
+    <a class="colorhref" href="{% url 'product_list' %}" class="button light">В магазин</a>
+    <a class="colorhref" href="{% url 'order_create' %}" class="button">Оформити замовлення</a>
   </p>
 {% endblock %}

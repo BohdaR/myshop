@@ -1,13 +1,33 @@
 .sizeimg{
-    font-weight: 100px;
-    height: 100px;
+    font-weight: 250px;
+    height: 200px;
+    border: 1px solid #000000;
 }
 .alingcenter{
     text-align: center;
+    border-collapse: collapse;
+    margin: 5px;
 }
 .h1{
     margin: 30px;
 }
 .colora{
     color: black;
+}
+.colorhref{
+    color: rgb(255, 255, 255);
+    border: solid;
+    background-color: #1fad0c;
+  border: 10px solid #1fad0c;
+  border-radius: 5px;
+}
+.colortable1{
+    background-color: gray;
+}
+.colortable2{
+    background-color: rgb(189, 189, 189);
+}
+.text-right{
+    margin: 20px;
+    text-align: right;
 }
