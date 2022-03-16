@@ -1,15 +1,16 @@
 .sizeimg{
-    font-weight: 250px;
+    font-weight: 200px;
     height: 200px;
-    border: 1px solid #000000;
+    margin: 5px;
 }
 .alingcenter{
     text-align: center;
     border-collapse: collapse;
     margin: 5px;
 }
-.h1{
+.p{
     margin: 30px;
+    font-size:50px;
 }
 .colora{
     color: black;
@@ -25,7 +26,7 @@
     background-color: gray;
 }
 .colortable2{
-    background-color: rgb(189, 189, 189);
+    background-color: rgb(255, 255, 255);
 }
 .text-right{
     margin: 20px;

@@ -1,13 +1,29 @@
 {% extends "shop/base.html" %}
+{% load static %}
+
+{% block css-files %} 
+    <link rel="stylesheet" href="{% static 'orders/css/orders.css' %}" />
+{% endblock %}
 
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
-    <h1>Checkout</h1>
-    <div class="order-info">
+<div class="container">
+    <div class="formseting">
         <h3>Ваше замовлення</h3>
+    <form action="." method="post" class="order-form">
+        {% for f in form %}
+        <p class="reg-item"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <button class="form-button" type="submit">Оформити замовлення</button>
+        {% csrf_token %}
+     </form>
+     </div>
+     <div class="order-info">
         <ul>
             {% for item in cart %}
+            <img src="{{ item.product.image.url }}" alt="" class="product-image">
                 <li>
                     {{ item.quantity }}x {{ item.product.name }}
                     <span>${{ item.total_price }}</span>
@@ -16,12 +32,5 @@
         </ul>
         <p>Total: ${{ cart.get_total_price }}</p>
     </div>
-    <form action="." method="post" class="order-form">
-        {% for f in form %}
-        <p class="reg-item"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-        <div class="form-error">{{ f.errors }}</div>
-        {% endfor %}
-        <button class="form-button" type="submit">Оформити замовлення</button>
-        {% csrf_token %}
-    </form>
+</div>
 {% endblock %}

@@ -13,7 +13,7 @@
 .list-pages ul li {
 	display: inline-block;
 	margin: 0 20px 0 0;
-    background-color: rgb(119, 0, 255);
+    background-color: rgb(65, 0, 187);
 }
 
 .list-pages a {
@@ -44,4 +44,25 @@
 
 .list-pages .page-number-selected:hover {
 	box-shadow: none; 
+}
+/* Footer знизу */
+.footer-site{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: rgb(0, 0, 0);
+	color: white;
+}
+.widget-social li{
+	list-style: none;
+	display: inline-block;
+	margin-right: 20px;
+}
+.widget-social li a:hover{
+	color: rgb(167, 4, 4) !important;
+}
+.forceup{
+	text-align: left;
+}
+.social{
+	
 }

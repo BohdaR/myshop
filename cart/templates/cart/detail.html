@@ -11,8 +11,8 @@
 
 
 {% block content %}
-  <h1 class="h1">Корзина покупок</h1>
-  <table  class="alingcenter" width="99%" height="50%">
+  <p class="p">Мій кошик</p>
+  <table  class="alingcenter" width="99%">
     <thead>
       <tr class="colortable1">
         <th>Фото</th>
@@ -46,20 +46,22 @@
             <td >
               {{ item.quantity }}
             </td>
-            <td >${{ item.price }}</td>
-            <td >${{ item.total_price }}</td>
+            <td >{{ item.price }}грн.</td>
+            <td >{{ item.total_price }}грн.</td>
           </tr>
         {% endwith %}
       {% endfor %}
       <tr class="colortable1">
         <td >Всього</td>
         <td colspan="5"></td>
-        <td >${{ cart.get_total_price }}</td>
+        <td >{{ cart.get_total_price }}грн.</td>
       </tr>
     </tbody>
   </table>
   <p class="text-right">
-    <a class="colorhref" href="{% url 'product_list' %}" class="button light">В магазин</a>
     <a class="colorhref" href="{% url 'order_create' %}" class="button">Оформити замовлення</a>
   </p>
+{% endblock %}
+{% block js-files %} 
+<script src="{% static 'cart/js/cart.js' %}" crossorigin="anonymous"></script> 
 {% endblock %}

@@ -1,0 +1,14 @@
+.order-info{
+    text-align: right;
+}
+.container{
+    justify-content: space-between;
+}
+.formseting{
+
+}
+.order-form> p > input{
+outline: none;
+    /* border: none;
+    border-bottom: 2px solid red; */
+}
