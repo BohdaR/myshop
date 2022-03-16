@@ -7,6 +7,11 @@ class CharacteristicInline(admin.TabularInline):
     raw_id_fields = ['product']
 
 
+class ProductImagesInline(admin.TabularInline):
+    model = ProductImages
+    raw_id_fields = ['product']
+
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}
@@ -23,7 +28,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ('price', 'stock', 'available')
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ('name', 'description')
-    inlines = [CharacteristicInline]
+    inlines = (ProductImagesInline, CharacteristicInline)
 
 
 admin.site.register(Category, CategoryAdmin)
