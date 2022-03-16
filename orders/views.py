@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import OrderItem
 from .forms import OrderCreateForm
-from django.views.generic import FormView, DetailView
+from django.views.generic import FormView
 from cart.cart import Cart
 from django.urls import reverse_lazy
 
