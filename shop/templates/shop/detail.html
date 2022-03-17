@@ -3,6 +3,7 @@
 
 {% block css-files %} 
     <link rel="stylesheet" href="{% static 'shop/css/about-goods.css' %}" />
+    <link rel="stylesheet" href="{% static 'shop/css/slider.css' %}" />
 {% endblock %}
 
 {% block title %}
@@ -15,10 +16,26 @@
 
 <div class="container">
     <div class="left-columb">
-            <img src="{% if product.main_image %}{{ product.main_image.url }}{% endif %}" alt="" class="active-img">
-            {% for el in product_image %}
-            <img src="{% if el.image %}{{ el.image.url }}{% endif %}" alt="" class="product-image">
-        {% endfor %}
+        <div class="slider-container">
+            <div class="some-block">
+                <button class="Right"><i class="fa-solid fa-chevron-left fa-2xl"></i></button>
+            </div>
+            <div class="slider">
+                <ul class="slider-item-list">
+                    <li class="slider-item">
+                        <img src="{% if product.main_image %}{{ product.main_image.url }}{% endif %}" alt="">
+                    </li>
+                    {% for el in product_image %}
+                    <li class="slider-item">
+                        <img src="{% if el.image %}{{ el.image.url }}{% endif %}" alt="">
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="some-block">
+                <button class="Left"><i class="fa-solid fa-chevron-right fa-2xl"></i></button>
+            </div>
+        </div>
         <div class="similar-products">
             <p>Схожі товари</p>
         </div>
@@ -82,4 +99,8 @@
 
 
 {% endblock %}
+{% block js-filles %}
+    <script type="text/javascript" src="{% static 'shop/js/script.js' %}"></script>
+{% endblock %}
+
 

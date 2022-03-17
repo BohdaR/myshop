@@ -1,0 +1,48 @@
+.slider-container{
+  display: flex;
+  align-items: center
+}
+
+.some-block{
+  width: 30px;
+  height: 30px;
+}
+
+.slider-item-list{
+  transition: margin 1s ease 0.2s;
+}
+
+.some-block>button{
+  border: none;
+  background-color: #fff;
+}
+
+.some-block>button>i{
+  color: black;
+  transition: all 0.3s ease 0.05s;
+}
+
+.some-block>button>i:hover {
+  color: rgb(117, 35, 124);
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.slider{
+  overflow: hidden; 
+  width: 500px;
+  height: 450px; 
+}
+
+.slider-item>img{
+  width: 500px;
+  padding: 50px;
+}
+
+ul{
+  display: flex;
+}
+
+.slider>ul>li{
+  display: inline-block;
+}
