@@ -15,113 +15,115 @@
       <title>{% block title %}{% endblock %}</title>
     </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <div class="logo-wrapper">
-          <a href="{% url 'product_list' %}" class="nav-link"><img class="logo-img" src="{% static 'shop/img/logo.png' %}" alt=""></a>
+    <div class="page-wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="logo-wrapper">
+            <a href="{% url 'product_list' %}" class="nav-link"><img class="logo-img" src="{% static 'shop/img/logo.png' %}" alt=""></a>
+          </div>
+          <div class="search-wrapper">
+            <form action="{% url 'product_list' %}" method="get">
+              <input name="q" class="search-input" type="input" placeholder="Пошук...">
+              <button class="search-buttton">Знайти</button>
+            </form>
+          </div>
+          <div class="nav-list-wrapper">
+            <nav>
+              <ul>
+                {% if request.user.is_authenticated %}
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-regular fa-heart fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  {{ user.username }} | <a href="{% url 'logout' %}" class="nav-link">Вийти</a>
+                </li>
+                {% else %}
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-regular fa-user fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-regular fa-heart fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="{% url 'cart:cart_detail' %}" class="nav-link">
+                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="{% url 'login' %}" class="nav-link">Увійти</a> | <a href="{% url 'register' %}" class="nav-link">Реєстрація</a>
+                </li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
         </div>
-        <div class="search-wrapper">
-          <form action="{% url 'product_list' %}" method="get">
-            <input name="q" class="search-input" type="input" placeholder="Пошук...">
-            <button class="search-buttton">Знайти</button>
-          </form>
+        <div class="korable">
+          <p><i class="fa-solid fa-ship"> РУСКИЙ ВОЄНИЙ КОРАБЛЬ ІДИ НАХУЙ !</i></p>
         </div>
-        <div class="nav-list-wrapper">
-          <nav>
+      </header>
+      <main>
+        {% block content %}
+        {% endblock %}
+          {% if page_obj.has_other_pages %}
+          <nav class="list-pages">
             <ul>
-              {% if request.user.is_authenticated %}
-              <li class="nav-list-item">
-                <a href="{% url 'cart:cart_detail' %}" class="nav-link">
-                  <i class="fa-regular fa-heart fa-lg"></i>
-                </a>
-              </li>
-              <li class="nav-list-item">
-                <a href="{% url 'cart:cart_detail' %}" class="nav-link">
-                  <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                </a>
-              </li>
-              <li class="nav-list-item">
-                {{ user.username }} | <a href="{% url 'logout' %}" class="nav-link">Вийти</a>
-              </li>
-              {% else %}
-              <li class="nav-list-item">
-                <a href="{% url 'cart:cart_detail' %}" class="nav-link">
-                  <i class="fa-regular fa-user fa-lg"></i>
-                </a>
-              </li>
-              <li class="nav-list-item">
-                <a href="{% url 'cart:cart_detail' %}" class="nav-link">
-                  <i class="fa-regular fa-heart fa-lg"></i>
-                </a>
-              </li>
-              <li class="nav-list-item">
-                <a href="{% url 'cart:cart_detail' %}" class="nav-link">
-                  <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                </a>
-              </li>
-              <li class="nav-list-item">
-                <a href="{% url 'login' %}" class="nav-link">Увійти</a> | <a href="{% url 'register' %}" class="nav-link">Реєстрація</a>
-              </li>
+              {% if page_obj.has_previous %}
+                <li class="page-number">
+                  <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+                </li>
+              {% endif %}
+              {% for p in paginator.page_range %}
+                {% if page_obj.number ==  p %}
+                  <li class="page-number page-number-selected">
+                    <a href="?page={{ p }}">{{ p }}</a>
+                  </li>
+                {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                  <li class="page-number">
+                    <a href="?page={{ p }}">{{ p }}</a>
+                  </li>
+                {% endif %} 
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <li class="page-number">
+                  <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                </li>
               {% endif %}
             </ul>
           </nav>
-        </div>
-      </div>
-      <div class="korable">
-        <p><i class="fa-solid fa-ship"> РУСКИЙ ВОЄНИЙ КОРАБЛЬ ІДИ НАХУЙ !</i></p>
-      </div>
-    </header>
-    <main>
-      {% block content %}
-      {% endblock %}
-        {% if page_obj.has_other_pages %}
-        <nav class="list-pages">
-          <ul>
-            {% if page_obj.has_previous %}
-              <li class="page-number">
-                <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+        {% endif %}
+      </main>
+      <footer class="footer-site">
+        <div class="container">
+          <p class="forceup">
+            WhyHub
+          </p>
+          <div class="social">
+            <ul class="widget-social">
+              <li>
+                <a href="" i class="fa-brands fa-instagram fa-2xl"></i></a>
               </li>
-            {% endif %}
-            {% for p in paginator.page_range %}
-              {% if page_obj.number ==  p %}
-                <li class="page-number page-number-selected">
-                  <a href="?page={{ p }}">{{ p }}</a>
-                </li>
-              {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
-                <li class="page-number">
-                  <a href="?page={{ p }}">{{ p }}</a>
-                </li>
-              {% endif %} 
-            {% endfor %}
-            {% if page_obj.has_next %}
-              <li class="page-number">
-                <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+              <li>
+                <a href="" i class="fa-brands fa-facebook fa-2xl"></i></a>
               </li>
-            {% endif %}
-          </ul>
-        </nav>
-      {% endif %}
-    </main>
-    <footer class="footer-site">
-      <div class="container">
-        <p class="forceup">
-          WhyHub
-        </p>
-        <div class="social">
-          <ul class="widget-social">
-            <li>
-              <a href="" i class="fa-brands fa-instagram fa-2xl"></i></a>
-            </li>
-            <li>
-              <a href="" i class="fa-brands fa-facebook fa-2xl"></i></a>
-            </li>
-            <li>
-              <a href="" i class="fa-brands fa-discord fa-2xl"></i></a>
-            </li>
-          </ul>
+              <li>
+                <a href="" i class="fa-brands fa-discord fa-2xl"></i></a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </footer>
-    {% block js-files %}{% endblock %}
+      </footer>
+      {% block js-files %}{% endblock %}
+    </div>
   </body>
 </html>
