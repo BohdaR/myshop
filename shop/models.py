@@ -80,8 +80,8 @@ class ProductImages(models.Model):
 
 
     class Meta:
-        verbose_name = 'зображення товару'
-        verbose_name_plural = 'зображення товару'
+        verbose_name = 'додаткове зображення товару'
+        verbose_name_plural = 'Додаткові зображення товару'
 
     def __str__(self):
         return f'Зображення товару'
