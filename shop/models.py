@@ -36,6 +36,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.PROTECT, verbose_name='Категорія товару')
     brend = models.ForeignKey(Brend, related_name='products', on_delete=models.PROTECT, verbose_name='бренд товару')
     name = models.CharField(max_length=200, db_index=True, verbose_name='Назва товару')
+    main_image = models.ImageField(upload_to='products/%Y/%m/%d', verbose_name='Основне зображення товару')
     slug = models.SlugField(max_length=200, db_index=True, unique=True, verbose_name='URL')
     description = models.TextField(blank=True, verbose_name='Опис товару')
     old_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, verbose_name='Ціна до знижки')
@@ -79,8 +80,8 @@ class ProductImages(models.Model):
 
 
     class Meta:
-        verbose_name = 'зображення товару'
-        verbose_name_plural = 'зображення товару'
+        verbose_name = 'додаткове зображення товару'
+        verbose_name_plural = 'Додаткові зображення товару'
 
     def __str__(self):
         return f'Зображення товару'

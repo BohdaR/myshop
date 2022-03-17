@@ -39,8 +39,7 @@ class ProductList(DataMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
-
+        context['product_image'] = ProductImages.objects.all()
         c = Category.objects.get(slug=self.kwargs['category_slug'])
         c_def = self.get_user_context(
             title='Категорія - ' + str(c.name),
@@ -58,6 +57,7 @@ class ProductDetail(DataMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['characteristics'] = Characteristic.objects.all().filter(product_id=context['product'].id)
+        context['product_image'] = ProductImages.objects.all().filter(product_id=context['product'].id)
         c_def = self.get_user_context(title = context['product'].name)
         return dict(list(context.items()) + list((c_def.items())))
 

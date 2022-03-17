@@ -45,24 +45,30 @@
 .list-pages .page-number-selected:hover {
 	box-shadow: none; 
 }
+
 /* Footer знизу */
+
 .footer-site{
 	padding-top: 20px;
 	padding-bottom: 20px;
 	background: rgb(0, 0, 0);
 	color: white;
 }
+
+.footer-site > .container{
+	justify-content: space-between;
+}
+
 .widget-social li{
 	list-style: none;
 	display: inline-block;
 	margin-right: 20px;
 }
+
 .widget-social li a:hover{
 	color: rgb(167, 4, 4) !important;
 }
+
 .forceup{
 	text-align: left;
-}
-.social{
-	
 }

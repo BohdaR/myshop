@@ -7,6 +7,10 @@ html {
 }
 
 .product-image {
+  display: none;
+}
+
+.active-img{
   width: 100%;
   padding: 20%;
 }
@@ -114,10 +118,10 @@ html {
   font-size: 35px;
 }
 
-.product-characteristics{
+/* .product-characteristics{
   height: 700px;
   width: 900px;
-}
+} */
 
 .product-characteristics-row{
   display: flex;

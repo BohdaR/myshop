@@ -74,57 +74,53 @@
     <main>
       {% block content %}
       {% endblock %}
-    </main>
-    <footer class="footer">
-      <div class="container">
         {% if page_obj.has_other_pages %}
-          <nav class="list-pages">
-            <ul>
-              {% if page_obj.has_previous %}
-                <li class="page-number">
-                  <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+        <nav class="list-pages">
+          <ul>
+            {% if page_obj.has_previous %}
+              <li class="page-number">
+                <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+              </li>
+            {% endif %}
+            {% for p in paginator.page_range %}
+              {% if page_obj.number ==  p %}
+                <li class="page-number page-number-selected">
+                  <a href="?page={{ p }}">{{ p }}</a>
                 </li>
-              {% endif %}
-              {% for p in paginator.page_range %}
-                {% if page_obj.number ==  p %}
-                  <li class="page-number page-number-selected">
-                    <a href="?page={{ p }}">{{ p }}</a>
-                  </li>
-                {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
-                  <li class="page-number">
-                    <a href="?page={{ p }}">{{ p }}</a>
-                  </li>
-                {% endif %} 
-              {% endfor %}
-              {% if page_obj.has_next %}
+              {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
                 <li class="page-number">
-                  <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                  <a href="?page={{ p }}">{{ p }}</a>
                 </li>
-              {% endif %}
-            </ul>
-          </nav>
-        {% endif %}
-      </div>
-    </footer>
+              {% endif %} 
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li class="page-number">
+                <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
+    </main>
     <footer class="footer-site">
       <div class="container">
         <p class="forceup">
           WhyHub
         </p>
         <div class="social">
-        <ul class="widget-social">
-          <li>
-            <a href="" i class="fa-brands fa-instagram fa-2xl"></i></a>
-          </li>
-          <li>
-            <a href="" i class="fa-brands fa-facebook fa-2xl"></i></a>
-          </li>
-          <li>
-            <a href="" i class="fa-brands fa-discord fa-2xl"></i></a>
-          </li>
-        </ul>
+          <ul class="widget-social">
+            <li>
+              <a href="" i class="fa-brands fa-instagram fa-2xl"></i></a>
+            </li>
+            <li>
+              <a href="" i class="fa-brands fa-facebook fa-2xl"></i></a>
+            </li>
+            <li>
+              <a href="" i class="fa-brands fa-discord fa-2xl"></i></a>
+            </li>
+          </ul>
+        </div>
       </div>
-  </div>
     </footer>
     {% block js-files %}{% endblock %}
   </body>
