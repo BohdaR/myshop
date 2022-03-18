@@ -21,16 +21,14 @@
                 <button class="Right"><i class="fa-solid fa-chevron-left fa-2xl"></i></button>
             </div>
             <div class="slider">
-                <ul class="slider-item-list">
-                    <li class="slider-item">
-                        <img src="{% if product.main_image %}{{ product.main_image.url }}{% endif %}" alt="">
-                    </li>
-                    {% for el in product_image %}
-                    <li class="slider-item">
-                        <img src="{% if el.image %}{{ el.image.url }}{% endif %}" alt="">
-                    </li>
+                <div class="slider-item">
+                    <img class="slide-img" src="{% if product.main_image %}{{ product.main_image.url }}{% endif %}" alt="">
+                </div>
+                <div class="slider-item">
+                    {% for el in product_image %}                  
+                        <img class="slide-img" src="{% if el.image %}{{ el.image.url }}{% endif %}" alt="">
                     {% endfor %}
-                </ul>
+                </div>
             </div>
             <div class="some-block">
                 <button class="Left"><i class="fa-solid fa-chevron-right fa-2xl"></i></button>
