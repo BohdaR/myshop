@@ -105,10 +105,15 @@
       </main>
       <footer class="footer-site">
         <div class="container">
-          <p class="forceup">
-            WhyHub
-          </p>
-          <div class="social">
+          <div class="logo-wrapper">
+            <a href="{% url 'product_list' %}" class="nav-link"><img class="logo-img" src="{% static 'shop/img/logo.png' %}" alt=""></a>
+            <div class="infofooter">
+            <p>Наші Контакти</p>
+            <p>067-339-4527</p>
+            </div>
+          </div>
+          <div>
+            <p  class="social">Ми в соц.мережах</p><br>
             <ul class="widget-social">
               <li>
                 <a href="" i class="fa-brands fa-instagram fa-2xl"></i></a>
@@ -117,7 +122,7 @@
                 <a href="" i class="fa-brands fa-facebook fa-2xl"></i></a>
               </li>
               <li>
-                <a href="" i class="fa-brands fa-discord fa-2xl"></i></a>
+                <a href="" i class="fa-brands fa-twitter fa-2xl"></i></a>
               </li>
             </ul>
           </div>

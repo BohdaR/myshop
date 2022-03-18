@@ -57,6 +57,7 @@
 
 .footer-site > .container{
 	justify-content: space-between;
+	align-items: center;
 }
 
 .widget-social li{
@@ -71,4 +72,13 @@
 
 .forceup{
 	text-align: left;
+}
+.social{
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.infofooter{
+	font-size: 20px;
+	font-weight: bold;
 }
