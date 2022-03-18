@@ -18,7 +18,11 @@
             <div class="product-card">
               {% if el.old_price %}<div class="badge">Знижка!</div> {% endif %}
               <div class="product-tumb">
-                {% if el.main_image %}<a href="{{ el.get_absolute_url }}"><img src="{{ el.main_image.url }}" alt=""></a>{% endif %}
+                {% if el.main_image %}
+                  <a href="{{ el.get_absolute_url }}">
+                    <img src="{{ el.main_image.url }}" class="product-card-image" alt="">
+                  </a>
+                {% endif %}
               </div>
               <div class="product-details">
                 <span class="product-catagory">{{ el.category }}</span>
@@ -45,6 +49,4 @@
         {% endif %}
       </div>
     </div>
-
-
 {% endblock %}

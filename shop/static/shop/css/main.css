@@ -70,9 +70,15 @@
     background: white;
 }
 
-.product-tumb img {
+.product-card-image {
     max-width: 100%;
     max-height: 90%;
+    transition: transform 0.5s;
+}
+
+.product-card-image:hover{
+    transform: scale(1.15);
+    overflow: hidden;
 }
 
 .product-details {
