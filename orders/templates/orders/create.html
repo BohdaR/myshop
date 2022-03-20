@@ -11,19 +11,28 @@
 <div class="container">
     <div class="formseting">
         <h3>Ваше замовлення</h3>
-    <form action="." method="post" class="order-form">
-        {% for f in form %}
-        <p class="reg-item"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-        <div class="form-error">{{ f.errors }}</div>
-        {% endfor %}
-        <button class="form-button" type="submit">Оформити замовлення</button>
-        {% csrf_token %}
-     </form>
+        <form method="post" class="order-form">
+            <div class="order-form-item">
+                {% csrf_token %}
+            </div>
+            {% for f in form %}
+            <div class="order-form-item">
+                <label class="form-label" for="{{ f.id_for_label }}">
+                    {{f.label}}:
+                </label>
+                {{ f }}
+                <div class="form-error">
+                    {{ f.errors }}
+                </div>
+            </div>
+            {% endfor %}
+            <button class="form-button" type="submit">Оформити замовлення</button>
+        </form>
      </div>
      <div class="order-info">
         <ul>
             {% for item in cart %}
-            <img src="{{ item.product.image.url }}" alt="" class="product-image">
+            <img src="{{ item.product.image.url }}" alt="" class="order-product-image">
                 <li>
                     {{ item.quantity }}x {{ item.product.name }}
                     <span>${{ item.total_price }}</span>

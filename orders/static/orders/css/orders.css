@@ -1,14 +1,21 @@
 .order-info{
     text-align: right;
 }
+
 .container{
     justify-content: space-between;
 }
-.formseting{
 
+.order-chekbox{
+    display: inline-block;
 }
+
+.order-form-item{
+    
+}
+
 .order-form> p > input{
-outline: none;
+    outline: none;
     /* border: none;
     border-bottom: 2px solid red; */
 }

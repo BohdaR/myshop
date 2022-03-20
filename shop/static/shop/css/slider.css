@@ -5,10 +5,12 @@
 }
 
 .slider{
+  display: flex;
   position: relative;
   width: 500px;
   height: 450px; 
   overflow: hidden;
+  align-items: center;
 }
 
 .some-block>button{
