@@ -3,26 +3,22 @@
 }
 
 .products-nav{
-    width: 15%;
+    width: 10%;
 }
 
 .products-table{
-    width: 85%;
+    width: 90%;
 }
 
 .product-nav-link, .product-selected-link{
     padding: 1rem;
-    font-size: 1.25rem;
-    box-shadow: -2px 2px 2px #dfdfdf;
+    font-size: 20px;
     font-family: 'Roboto', sans-serif;
 }
 
-.product-selected-link{
-    background-color: rgb(65, 0, 187);
-}
-
-.product-nav-link:hover{
-    background-color: rgb(248, 200, 44);
+.product-hover:hover{
+    color: #CC0000;
+    text-decoration: underline;
 }
 
 .product-nav-link > a, .product-selected-link > a{

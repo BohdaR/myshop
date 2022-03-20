@@ -4,7 +4,7 @@
             <a href="{% url "product_list" %}">Усі категорії</a></li>
         {% for c in cats %}
         <li {% if cat_selected == c.id %} class="product-selected-link" {% else %} class="product-nav-link" {% endif %}>
-            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+            <a class="product-hover" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
         </li>
       {% endfor %}
     </ul>
