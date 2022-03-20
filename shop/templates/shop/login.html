@@ -1,18 +1,22 @@
 {% extends 'shop/base.html' %}
+{% load static %}
 
+{% block css-files %} 
+    <link rel="stylesheet" href="{% static 'shop/css/login.css' %}" />
+{% endblock %}
 
 {% block title %}
     {{ title }}
 {% endblock %}
 
 {% block content %}
-<form method="post">
+<form method="post" class="form-setting">
     {% csrf_token %}
 
     <div class="form-error">
         {{ form.non_field_errors }}
     </div>
-
+    <p class="p">Авторизація</p>
     {% for f in form %}
         <p class="reg-item">
             <label class="form-label" for="{{ f.id_for_label }}">
@@ -21,7 +25,7 @@
         </p>
         <div class="form-error">{{ f.errors }}</div>
     {% endfor %}
-    <button class="form-button" type="submit">Увійти</button>
+    <div class="buttondiv"><button class="form-button" type="submit">Увійти</button></div>
 </form>
 
 {% endblock %}

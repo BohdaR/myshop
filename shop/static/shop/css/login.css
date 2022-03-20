@@ -1,0 +1,20 @@
+.form-setting{
+    text-align: left;
+}
+.form-button {
+    background: rgb(65, 0, 187);
+    color: white;
+    border-radius: 5px;
+    border:none;
+    width: 150px;
+}
+.p{
+    font-size: 50px;
+    margin: 30px;
+}
+.buttondiv{
+    margin-left: 20px;
+}
+.form-label{
+    display: block;
+}
