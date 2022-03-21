@@ -28,14 +28,6 @@
     margin: 0px;
 }
 
-.order-form-label {
-    display: inline-block;
-    min-width: 200px;
-    width: 25%;
-    vertical-align: top;
-    font-size: 15px;
-}
-
 .order-button{
     padding: 10px;
     width: 100%;

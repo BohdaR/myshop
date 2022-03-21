@@ -29,107 +29,19 @@ main{
   flex: 1 1 auto;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* body{
-    background-color: #9b9b9b;
+#upbutton{
+  display: none;
+  text-align: right;
+  margin-left: 92%;
+  transform: scale(1.6);
+  background-color: blueviolet;
+  padding: 15px;
+  border-radius: 50%;
 }
 
-.logo{
-    width: 50%;
+@media screen and (min-width: 1940px) {
+  .container{
+      width: 1920px;
+      margin: auto;
+  }
 }
-
-.goods_img{
-    width: 100px;
-}
-
-
-
-.main_wrapper{
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .goods_list{
-    width: 86vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    background-color: rgb(158, 81, 247);
-    align-content: flex-start;
-  }
-  
-  .goods{
-    width: 25%;
-    border: solid 1px;
-  }
-  
-  .goods img{
-    width: 100%;
-    height: 100%;
-    padding: 5px 10px;
-  }
-  
-  .goods_list_wrapper{
-    margin: 0% 5%;
-    width: 90%;
-  }
-  
-  .description{
-    text-align: center;
-  }
-  
-  .goods_wrapper{
-    padding: 5%;
-  }
-  
-  .description{
-    text-align: left;
-  }
-  
-  .title_goods{
-    display: block;
-    height: 32px;
-    margin-bottom: 8px;
-    overflow: hidden;
-    font-size: 16px;
-    line-height: 16px;
-    color: #221f1f;
-  }
-  
-  .goods_price{
-    color: blueviolet;
-  }
-   */

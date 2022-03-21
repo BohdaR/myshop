@@ -1,18 +1,29 @@
 {% extends 'shop/base.html' %}
+{% load static %}
 
+{% block css-files %} 
+    <link rel="stylesheet" href="{% static 'shop/css/login.css' %}" />
+{% endblock %}
 
 {% block title %}
     {{ title }}
 {% endblock %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {% for f in form %}
-    <p class="reg-item"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-    <div class="form-error">{{ f.errors }}</div>
-    {% endfor %}
-    <button class="form-button" type="submit">Реєстрація</button>
-</form>
-
+<div class="container">
+    <div class="authentication-form">
+        <form method="post">
+            {% for f in form %}
+            <div class="authentication-form-item">
+                {{ f }}
+                <div class="form-error">
+                    {{ f.errors }}
+                </div>
+            </div>
+            {% csrf_token %}
+            {% endfor %}
+            <button class="authentication-button" type="submit">Зареєструватися</button>
+        </form>
+    </div>
+</div>
 {% endblock  %}

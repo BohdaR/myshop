@@ -29,3 +29,5 @@ function right_next_slide() {
 
 Left[0].addEventListener("click", left_next_slide);
 Right[0].addEventListener("click", right_next_slide);
+
+// прокрутка наверх
