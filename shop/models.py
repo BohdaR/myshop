@@ -33,13 +33,15 @@ class Brend(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.PROTECT, verbose_name='Категорія товару')
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.PROTECT,
+                                 verbose_name='Категорія товару')
     brend = models.ForeignKey(Brend, related_name='products', on_delete=models.PROTECT, verbose_name='бренд товару')
     name = models.CharField(max_length=200, db_index=True, verbose_name='Назва товару')
     main_image = models.ImageField(upload_to='products/%Y/%m/%d', verbose_name='Основне зображення товару')
     slug = models.SlugField(max_length=200, db_index=True, unique=True, verbose_name='URL')
     description = models.TextField(blank=True, verbose_name='Опис товару')
-    old_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, verbose_name='Ціна до знижки')
+    old_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True,
+                                    verbose_name='Ціна до знижки')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Ціна товару')
     stock = models.PositiveIntegerField(verbose_name='Залишок товару')
     available = models.BooleanField(default=True, verbose_name='Доступність товару на складі')

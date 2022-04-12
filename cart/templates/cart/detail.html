@@ -39,7 +39,11 @@
               <td >{{ product.name }}</td>
               <td>
                 <form  action="{% url 'cart:cart_add' product.id %}" method="post">
-                  {{ item.update_quantity_form.quantity }}
+                  <div class="quantity-wrapper">
+                    <div class="quantity">
+                      {{ item.update_quantity_form.quantity }}
+                    </div>
+                </div>
                   {{ item.update_quantity_form.update }}
                   <input type="submit" value="Обновити">
                   {% csrf_token %}
